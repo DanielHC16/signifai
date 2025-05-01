@@ -7,13 +7,13 @@ import { getAuth } from "firebase/auth";
  * Replace these values with your Firebase project's configuration.
  */
 const firebaseConfig = {
-    apiKey: "AIzaSyAi2cNUnP-VgGEhdrOPG0pfVDjsTp9gSFQ",
-    authDomain: "signifai-70068.firebaseapp.com",
-    projectId: "signifai-70068",
-    storageBucket: "signifai-70068.firebasestorage.app",
-    messagingSenderId: "164883796273",
-    appId: "1:164883796273:web:863cc02606cd9f18a52010",
-    measurementId: "G-C5EF4P8L7N"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };  
 
 
