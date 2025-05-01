@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 /**
@@ -47,9 +47,14 @@ export const addDataToFirestore = async (collectionName: string, data: object) =
  * @returns A promise that resolves to an array of documents, each containing its ID and data.
  * @throws An error if the operation fails.
  */
-export const fetchScore = async (collectionName: string) => {
+export const fetchScore = async (collectionName: string, sortBy: string = "score",
+  order: "asc" | "desc" = "desc") => {
     try {
-        const querySnapshot = await getDocs(collection(db, collectionName));
+        const q = query(
+            collection(db, collectionName),
+            orderBy(sortBy, order)
+        );
+        const querySnapshot = await getDocs(q);
         const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         console.log("Fetched data:", data);
         return data;
